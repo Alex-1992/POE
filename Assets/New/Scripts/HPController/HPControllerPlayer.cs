@@ -9,6 +9,10 @@ public class HPControllerPlayer : HPControllerBase
     //inspector
     public GameObject RebornPanel;
     public Text RebornText;
+    public BarController PlayerHPBarController;
+    public BarController PlayerMPBarController;
+    public BarController PlayerEXPBarController;
+    public Text PlayerLevelText;
 
     // Use this for initialization
     new void Start()
