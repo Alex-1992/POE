@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(POEStatus))]
 public class PlayerController : MonoBehaviour
 {
+    //inspectors
+    public BarController PlayerMPBarController;
+
     //prefabs
     public GameObject m_BulletPrefab;
     public Camera m_MainCamara;
@@ -164,6 +167,9 @@ public class PlayerController : MonoBehaviour
             //CD清零，扣蓝
             m_AttackCurrentCoolDown = 0f;
             m_HPControllerPlayer.LoseMP(S.S[K.BulletMPCost].Get());
+
+            //更新UI
+            PlayerMPBarController.SetBarValue(m_HPControllerPlayer.GetCurrentMP() / S.S[K.MaxMP].Get());
 
             //测试Buff
             //Buff.AddBuff(S, 3f, new StatusModifier(K.BulletCount, 1, 0, 0));

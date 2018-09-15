@@ -30,7 +30,7 @@ public abstract class HPControllerBase : MonoBehaviour
         return CurrentMp;
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         float temp = 0;
 
@@ -78,7 +78,7 @@ public abstract class HPControllerBase : MonoBehaviour
         CurrentMp = S.S[K.MaxMP].Get() * percent;
     }
 
-    protected void TakeDamage(POEStatus Source)
+    public virtual void TakeDamage(POEStatus Source)
     {
         float physicaldamage = 0;
         physicaldamage = Source.S[K.BulletPhysicalDamage].Get();
@@ -103,7 +103,7 @@ public abstract class HPControllerBase : MonoBehaviour
         TakeDamage(physicaldamage, firedamage, colddamage, lightingdamage);
     }
 
-    protected void TakeDamage(float physicaldamage, float firedamage, float colddamage, float lightingdamage)
+    protected virtual void TakeDamage(float physicaldamage, float firedamage, float colddamage, float lightingdamage)
     {
         if (physicaldamage < 0 || firedamage < 0 || colddamage < 0 || lightingdamage < 0) //等于0的如果不让传，timescale等于0的情况下会有问题
         {

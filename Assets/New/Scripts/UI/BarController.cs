@@ -8,7 +8,7 @@ public class BarController : MonoBehaviour
 
     private Slider myslider;
 
-    void Start()
+    void Awake()
     {
         myslider = GetComponentInChildren<Slider>();
     }

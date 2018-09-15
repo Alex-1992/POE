@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114890969717673660}
   - component: {fileID: 54265776502202194}
   - component: {fileID: 114910220284922156}
-  - component: {fileID: 114078615287125264}
+  - component: {fileID: 114322109572098482}
   m_Layer: 9
   m_Name: EnemyNormal
   m_TagString: Enemy
@@ -117,7 +117,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114078615287125264
+--- !u!114 &114322109572098482
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1464115734742964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a46f4bff7ac2cc4cb19a589465be039, type: 3}
+  m_Script: {fileID: 11500000, guid: 64a9c7120826d1c4983a35bec19caf57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114838550180661782
@@ -148,17 +148,17 @@ MonoBehaviour:
   MPRegenerationMultiplierWhileMoving: 1
   MPRegenerationMultiplierWhileNotMoving: 1
   MoveSpeed: 1
-  AttackSpeed: 0
-  BulletCount: 0
-  BulletSpeed: 0
-  BulletLifeTime: 0
-  BulletArc: 0
   BulletPhysicalDamage: 10
   BulletFireDamage: 0
   BulletColdDamage: 0
   BulletLightinglDamage: 0
   BulletDamageMultiplier: 1
   GlobalDamageMultiplier: 1
+  AttackSpeed: 0
+  BulletCount: 0
+  BulletSpeed: 0
+  BulletLifeTime: 0
+  BulletArc: 0
   BulletCriticalChance: 0
   BulletCriticalDamageMultiplier: 1
   BulletDamageCount: 0

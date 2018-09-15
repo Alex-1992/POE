@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4430049, g: 0.49219412, b: 0.57192254, a: 1}
+  m_IndirectSpecularColor: {r: 0.4430056, g: 0.4921946, b: 0.57192373, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2250,6 +2250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0796eaf90894c444486c2ce49054a346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerMPBarController: {fileID: 640465980}
   m_BulletPrefab: {fileID: 1959736637390666, guid: 8dd0c6d9e9c255f48a579bd777203e88,
     type: 2}
   m_MainCamara: {fileID: 467569686}
@@ -2313,9 +2314,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091177427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a46f4bff7ac2cc4cb19a589465be039, type: 3}
+  m_Script: {fileID: 11500000, guid: ef4139804932bc441b3c069acd0cdd18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerEXPBarController: {fileID: 1091564648}
+  PlayerLevelText: {fileID: 1844299640}
 --- !u!114 &1091177436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2331,7 +2334,6 @@ MonoBehaviour:
   RebornText: {fileID: 944462685}
   PlayerHPBarController: {fileID: 871839189}
   PlayerMPBarController: {fileID: 640465980}
-  PlayerEXPBarController: {fileID: 1091564648}
   PlayerLevelText: {fileID: 1844299640}
 --- !u!1 &1091564644
 GameObject:
@@ -2832,7 +2834,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1316134145}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aae8bdca7b37aa48bfac522cc7729cd, type: 3}
   m_Name: 
@@ -3642,7 +3644,7 @@ GameObject:
   - component: {fileID: 1844299641}
   - component: {fileID: 1844299640}
   m_Layer: 5
-  m_Name: Level
+  m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

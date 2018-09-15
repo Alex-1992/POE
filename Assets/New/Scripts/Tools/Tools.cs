@@ -156,7 +156,7 @@ public static class POEStatics {
     //玩家与玩家组件
     public static GameObject Player;    //玩家唯一实例
     public static PlayerController PlayerController;    //玩家身上的PlayerController组件唯一实例
-    public static LevelController PlayerLevelController;    //玩家身上的LevelController组件唯一实例
+    public static LevelControllerPlayer PlayerLevelController;    //玩家身上的LevelController组件唯一实例
     public static HPControllerPlayer PlayerHPController;  //玩家身上的HPController组件唯一实例
     public static POEStatus PlayerPOEStatus;    //玩家身上的POEStatus组件唯一实例
     public static MeshRenderer PlayerMeshRenderer;    //玩家身上的MeshRenderer组件唯一实例

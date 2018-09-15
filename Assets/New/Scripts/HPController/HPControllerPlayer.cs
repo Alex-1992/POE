@@ -11,7 +11,6 @@ public class HPControllerPlayer : HPControllerBase
     public Text RebornText;
     public BarController PlayerHPBarController;
     public BarController PlayerMPBarController;
-    public BarController PlayerEXPBarController;
     public Text PlayerLevelText;
 
     // Use this for initialization
@@ -23,13 +22,20 @@ public class HPControllerPlayer : HPControllerBase
         base.Start();
     }
 
-    new public void TakeDamage(POEStatus Source)
+    public override void TakeDamage(POEStatus Source)
     {
         base.TakeDamage(Source);
         if (CurrentHp <= 0)
         {
             this.Kill();
         }
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        PlayerHPBarController.SetBarValue(GetCurrentHP() / POEStatics.PlayerPOEStatus.S[K.MaxHP].Get());
+        PlayerMPBarController.SetBarValue(GetCurrentMP() / POEStatics.PlayerPOEStatus.S[K.MaxMP].Get());
     }
 
     private void Kill()
