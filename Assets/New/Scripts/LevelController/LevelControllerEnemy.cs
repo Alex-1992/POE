@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
+[RequireComponent(typeof(HPControllerEnemy))]
 public class LevelControllerEnemy : LevelControllerBase
 {
 
@@ -10,14 +12,41 @@ public class LevelControllerEnemy : LevelControllerBase
         S = gameObject.GetComponent<POEStatus>();
         base.Awake();
 
+        if (gameObject.CompareTag(POEStatics.Const.EnemyTag))
+        {
+            Init();
+            //计算该房间内的怪物应有的等级，并且让怪升到对应的等级
+            if (POEStatics.MobLevel > POEStatics.Const.InitLevel)
+            {
+                LevelUp(POEStatics.MobLevel - POEStatics.Const.InitLevel);
+            }
+        }
+    }
+
+    public void Start()
+    {
+    }
+
+    protected override void LevelUp(int levleup)
+    {
+        base.LevelUp(levleup);
+    }
+
+    public override void ExpGain(float expgain)
+    {
+        base.ExpGain(expgain);
+    }
+
+    private void Init()
+    {
         List<StatusModifier> temp1 = new List<StatusModifier>()
         {
-            new StatusModifier(K.MaxHP, 0, 0.1f, 0),
-            new StatusModifier(K.BulletPhysicalDamage, 0, 0.1f, 0),
-            new StatusModifier(K.BulletFireDamage, 0, 0.1f, 0),
-            new StatusModifier(K.BulletColdDamage, 0, 0.1f, 0),
-            new StatusModifier(K.BulletLightinglDamage, 0, 0.1f, 0),
-            new StatusModifier(K.MoveSpeed, 0, 0.1f , 0)
+            //new StatusModifier(K.MaxHP, 0, 0.1f, 0),
+            //new StatusModifier(K.BulletPhysicalDamage, 0, 0.1f, 0),
+            //new StatusModifier(K.BulletFireDamage, 0, 0.1f, 0),
+            //new StatusModifier(K.BulletColdDamage, 0, 0.1f, 0),
+            //new StatusModifier(K.BulletLightinglDamage, 0, 0.1f, 0),
+            //new StatusModifier(K.MoveSpeed, 0, 0.1f , 0)
         };
 
         List<StatusModifier> temp2 = new List<StatusModifier>()
@@ -73,21 +102,5 @@ public class LevelControllerEnemy : LevelControllerBase
             new LevelData(){Level = 31, TotalExpToNextLevel = float.PositiveInfinity , StatusModifiers = temp3 },
             new LevelData(){Level = 32, TotalExpToNextLevel = float.PositiveInfinity , StatusModifiers = temp3 },
         };
-
-        //计算该房间内的怪物应有的等级，并且让怪升到对应的等级
-        if (POEStatics.MobLevel > POEStatics.Const.InitLevel)
-        {
-            LevelUp(POEStatics.MobLevel - POEStatics.Const.InitLevel);
-        }
-    }
-
-    protected override void LevelUp(int levleup)
-    {
-        base.LevelUp(levleup);
-    }
-
-    public override void ExpGain(float expgain)
-    {
-        base.ExpGain(expgain);
     }
 }
