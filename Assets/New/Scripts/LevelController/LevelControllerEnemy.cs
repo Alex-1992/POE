@@ -10,16 +10,13 @@ public class LevelControllerEnemy : LevelControllerBase
     protected override void Awake()
     {
         S = gameObject.GetComponent<POEStatus>();
+        //Debug.Log(S.GetInstanceID());
         base.Awake();
-
-        if (gameObject.CompareTag(POEStatics.Const.EnemyTag))
+        Init();
+        //计算该房间内的怪物应有的等级，并且让怪升到对应的等级
+        if (POEStatics.MobLevel > POEStatics.Const.InitLevel)
         {
-            Init();
-            //计算该房间内的怪物应有的等级，并且让怪升到对应的等级
-            if (POEStatics.MobLevel > POEStatics.Const.InitLevel)
-            {
-                LevelUp(POEStatics.MobLevel - POEStatics.Const.InitLevel);
-            }
+            LevelUp(POEStatics.MobLevel - POEStatics.Const.InitLevel);
         }
     }
 
@@ -27,9 +24,9 @@ public class LevelControllerEnemy : LevelControllerBase
     {
     }
 
-    protected override void LevelUp(int levleup)
+    protected override void LevelUp(int levelup)
     {
-        base.LevelUp(levleup);
+        base.LevelUp(levelup);
     }
 
     public override void ExpGain(float expgain)
@@ -41,13 +38,18 @@ public class LevelControllerEnemy : LevelControllerBase
     {
         List<StatusModifier> temp1 = new List<StatusModifier>()
         {
-            //new StatusModifier(K.MaxHP, 0, 0.1f, 0),
-            //new StatusModifier(K.BulletPhysicalDamage, 0, 0.1f, 0),
-            //new StatusModifier(K.BulletFireDamage, 0, 0.1f, 0),
-            //new StatusModifier(K.BulletColdDamage, 0, 0.1f, 0),
-            //new StatusModifier(K.BulletLightinglDamage, 0, 0.1f, 0),
-            //new StatusModifier(K.MoveSpeed, 0, 0.1f , 0)
+            new StatusModifier(K.MaxHP, 0, 0.1f, 0),
+            new StatusModifier(K.BulletPhysicalDamage, 0, 0.1f, 0),
+            new StatusModifier(K.BulletFireDamage, 0, 0.1f, 0),
+            new StatusModifier(K.BulletColdDamage, 0, 0.1f, 0),
+            new StatusModifier(K.BulletLightinglDamage, 0, 0.1f, 0),
+            new StatusModifier(K.MoveSpeed, 0, 0.1f , 0)
         };
+
+        //for (int i = 0; i < temp1.Count; i++)
+        //{
+        //    Debug.Log(i + "|" + temp1[i].ToString());
+        //}
 
         List<StatusModifier> temp2 = new List<StatusModifier>()
         {

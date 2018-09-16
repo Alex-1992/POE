@@ -54,7 +54,7 @@ public class LevelControllerBase : MonoBehaviour
     {
         if (levleup <= 0)
         {
-            Debug.LogErrorFormat("【{0}】：不应该给LevelUp方法传入<=0的参数！", this.GetType());
+            Debug.LogErrorFormat("【{0} - {1}】：不应该给LevelUp方法传入<=0的参数！", this.GetType(), gameObject.name);
             return;
         }
         for (int i = 0; i < levleup; i++)

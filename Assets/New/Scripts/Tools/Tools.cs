@@ -101,6 +101,7 @@ public class StatusModifier
             Debug.LogErrorFormat("【{0}】：ApplyTo方法不应该传入值为null的POEStatus参数！", this.GetType());
             return;
         }
+        //Debug.Log(S.gameObject.name + "|" + this.ToString());
         S.S[AttributeKey].AddChange(AttributeAddChange);
         S.S[AttributeKey].MultiplierChange(AttributeMultiplierChange);
         S.S[AttributeKey].MoreChange(AttributeMoreChange);
