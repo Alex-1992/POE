@@ -1,2 +1,0 @@
-#poeproject
-The git test.
